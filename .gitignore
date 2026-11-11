@@ -1,0 +1,17 @@
+# CAD outputs — avoid committing large regenerated exports
+cad/out/parts/
+cad/out/*assembly.step
+cad/out/render_*.png
+cad/out/renders/
+cad/out/drawings/
+# Keep the intentional MuJoCo XML/mesh runtime files and validation JSON
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
