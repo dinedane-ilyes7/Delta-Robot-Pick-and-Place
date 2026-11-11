@@ -1,0 +1,8 @@
+# Named in the source archive's CAD README.
+# CadQuery brings in OpenCascade/OCP and often needs a compatible Conda environment.
+numpy
+pyyaml
+cadquery
+pyvista
+mujoco
+playwright
