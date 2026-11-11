@@ -1,0 +1,90 @@
+{
+ "arm moving parts vs bracket, motor, encoder": [
+  1.5,
+  [
+   75,
+   86.5,
+   -240
+  ]
+ ],
+ "arm vs hard-stop pins (away from the stops)": [
+  1.01,
+  [
+   -120.0,
+   0.0,
+   -240
+  ]
+ ],
+ "rod end vs its own elbow stud (swing)": [
+  2.06,
+  [
+   80,
+   -86.5,
+   -240
+  ]
+ ],
+ "rod end vs its own platform stud (swing)": [
+  2.34,
+  [
+   80,
+   -86.5,
+   -240
+  ]
+ ],
+ "rod vs own elbow block": [
+  2.24,
+  [
+   -80,
+   -86.5,
+   -240
+  ]
+ ],
+ "rod vs platform body": [
+  2.1,
+  [
+   80,
+   -86.5,
+   -240
+  ]
+ ],
+ "rod vs other arms' upper arms": [
+  195.2,
+  [
+   0,
+   0,
+   -175
+  ]
+ ],
+ "rod vs rods of other arms": [
+  17.96,
+  [
+   60.0,
+   -103.9,
+   -240
+  ]
+ ],
+ "springs vs elbow block": [
+  6.03,
+  [
+   -80,
+   -86.5,
+   -240
+  ]
+ ],
+ "springs vs platform body": [
+  3.85,
+  [
+   120.0,
+   0.0,
+   -240
+  ]
+ ],
+ "springs vs studs": [
+  8.93,
+  [
+   -80,
+   -86.5,
+   -240
+  ]
+ ]
+}
