@@ -4,7 +4,7 @@
 
 A parametric Delta parallel robot and conveyor-cell design for a planned high-speed pick-and-place system. The archive documents mechanical design, inverse/forward kinematics, drive geometry and a generated MuJoCo model.
 
-![Delta robot CAD render](media/renders/robot_iso.png)
+![Delta robot CAD render (compressed preview)](media/previews/robot_iso.webp)
 
 > **Scope:** This repository package represents the **CAD v2 and simulation-model assets supplied in `deltarobot.zip`**. The complete pick-and-place control application, ROS 2 integration, STM32 firmware and live physical implementation are **not** in the uploaded archive. No physical robot performance is claimed here.
 
@@ -23,7 +23,7 @@ A parametric Delta parallel robot and conveyor-cell design for a planned high-sp
 
 ### Design visualization
 
-![Delta cell isometric render](media/renders/cell_iso.png)
+![Delta cell isometric render (compressed preview)](media/previews/cell_iso.webp)
 
 ## Source code and project structure
 
@@ -31,29 +31,33 @@ A parametric Delta parallel robot and conveyor-cell design for a planned high-sp
 - [`cad/delta_cad/`](cad/delta_cad/): parametric geometry, parts, robot, cell, drives, MuJoCo model export.
 - [`analysis/kinematics.py`](analysis/kinematics.py): inverse/forward Delta kinematics, Jacobian and velocity/acceleration methods.
 - [`config/robot.yaml`](config/robot.yaml): authoritative geometry and simulation design parameters in the source archive.
-- [`cad/out/mujoco/`](cad/out/mujoco/): MJCF file, mesh assets and saved validation JSON.
+- [`cad/out/mujoco/`](cad/out/mujoco/): MJCF model, bodies JSON and saved validation report. **The 61 external STL mesh files are not published yet; regenerate them from CAD source before loading the XML.**
 - [`cad/README.md`](cad/README.md): detailed original CAD-v2 assembly and manufacturing notes.
-- [`docs/Delta_Cell_CAD_v2_Drawings.pdf`](docs/Delta_Cell_CAD_v2_Drawings.pdf): technical drawing set.
-- [`media/renders/`](media/renders/): rendered images of the robot and pick-and-place cell.
+- [`docs/Delta_CAD_Drawings_Preview.pdf`](docs/Delta_CAD_Drawings_Preview.pdf): 11-page **lower-resolution preview** of the technical drawings (not a manufacturing-quality original).
+- [`media/previews/`](media/previews/): 15 compressed WebP preview images of the robot and pick-and-place cell (full-resolution PNGs remain in the offline archive).
 
-The original archive includes large generated STEP assemblies and individual STEP/STL part exports. They are **not included in this smaller portfolio package**; retain the original `delta_cell_cad_v2.zip` for those artifacts.
+The original archive includes large generated STEP assemblies and individual STEP/STL part exports. They are **not included in this GitHub source repository**. The full MuJoCo STL meshes and full-resolution render PNGs also remain in the original offline ZIP; the repository contains lightweight visual previews and the MJCF definition.
 
-## Inspect the MuJoCo model
+## Running source checks and rebuilding the model
 
-Install compatible dependencies in a Python environment and inspect the saved MJCF scene:
+Basic kinematics checks use NumPy and PyYAML (no physical robot required):
+
+```bash
+python -m pip install numpy pyyaml
+python -m unittest discover -s tests -v
+```
+
+The [GitHub Actions source checks](.github/workflows/source-checks.yml) also compile the Python files and run these tests.
+
+**To obtain MuJoCo meshes:** The GitHub repository includes `cad/out/mujoco/delta_cell.xml`, but **not the external STL meshes referenced by this XML**. Regenerate geometry on a compatible machine with CadQuery/OpenCascade and the packages in `requirements-cad.txt`:
 
 ```bash
 python -m pip install -r requirements-cad.txt
+python cad/build.py
 python -m mujoco.viewer --mjcf cad/out/mujoco/delta_cell.xml
 ```
 
-You can attempt to rerun the validation script:
-
-```bash
-python cad/validate_mujoco.py
-```
-
-**Note:** CAD rebuild requires CadQuery/OpenCascade and other matching packages. This was **not rerun end-to-end** when preparing the repository. See [CAD source README](cad/README.md) and [scope/limitations](docs/PROJECT_SCOPE.md).
+CAD rebuild and full MuJoCo validation have **not been verified in this publication workflow**. The original offline ZIP contains the pre-generated mesh set and full-detail drawings. Refer to the [CAD source README](cad/README.md) and [project limitations](docs/PROJECT_SCOPE.md).
 
 ## Results and status
 
