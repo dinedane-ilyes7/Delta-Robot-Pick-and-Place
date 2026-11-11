@@ -63,6 +63,8 @@ CAD rebuild and full MuJoCo validation have **not been verified in this publicat
 
 The archived MuJoCo validation report records an approximately 0.023 mm maximum closure residual during simulated movement tests, with measured simulated target errors below 0.1 mm in the four archived motion trials. These are **stored simulation results**, not new results or physical tracking accuracy. Read [validation summary](docs/VALIDATION_SUMMARY.md) or the [raw report](cad/out/mujoco/validation.json).
 
+See [**what has been uploaded and what remains missing**](docs/UPLOAD_STATUS.md) and the [gallery of 15 CAD previews](media/previews/README.md).
+
 ## Collaboration and attribution
 
 This is collaborative work. Contributor roles and redistribution permissions should be documented before making the repository public. No open-source license is included by default.
