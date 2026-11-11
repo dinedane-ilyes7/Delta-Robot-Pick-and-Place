@@ -1,0 +1,71 @@
+# Single source of truth for the delta cell. Units: SI (m, kg, s, rad) unless the key says otherwise.
+# Read by: sim/build_model.py, sim/validate.py, the C++ core tests, and the ROS 2 nodes.
+# Every value cites its section in "Delta Cell: Robotics Technical Sheet". Replace estimates
+# with measurements (Section 16) and rerun sim/validate.py after every change.
+
+geometry:                 # Section 3
+  R: 0.110                # base joint radius
+  r: 0.030                # platform joint radius
+  L1: 0.170               # arm axis to elbow ball-pair axis
+  L2: 0.260               # lower rod, ball centre to ball centre
+  w: 0.040                # parallelogram width (ball spacing), same at elbow and platform
+  phi_deg: [0.0, 120.0, 240.0]   # arm azimuths from +x (belt flow)
+  theta_min_deg: -25.0    # hard stops
+  theta_max_deg: 80.0
+  tcp_offset: 0.035       # suction cup tip below the platform ball plane
+
+masses:                   # Section 5, iteration 2 (8 mm ball studs). Replace with CAD values (18.7).
+  ball_stud: 0.0027       # each, 18 per robot
+  rod_single: 0.0089      # one 6x4 rod with 2 cups
+  springs_per_arm: 0.0016 # 2 springs per arm
+  upper_tube: 0.0069      # 12x10 tube, exposed length
+  elbow_block: 0.010      # without balls
+  platform_body: 0.0392   # plate 20 g + cup and fitting 12 g + sensor 4 g + tube 3 g (balls added by the code)
+  payload_design: 0.020   # sizing payload; real caps 0.002 to 0.006
+  I_hub: 4.2e-6           # kg m^2, hub + shaft + collars + magnet, on the joint axis
+  I_pulley_big: 2.3e-5    # kg m^2, printed 120T pulley
+  J_rotor: 8.2e-6         # kg m^2, 17HS19-2004S1 datasheet
+
+drive:                    # Section 7
+  ratio: 6.0              # GT2 20T -> 120T
+  belt_efficiency: 0.95
+  joint_friction: 0.03    # Nm, estimate, measure (16)
+  vbus: 24.0
+  motor:                  # 17HS19-2004S1 + TMC2209 at 1.5 A RMS
+    holding_torque: 0.59
+    rated_current: 2.0
+    phase_resistance: 1.6
+    phase_inductance: 0.0030
+    pole_pairs: 50
+    drive_current_rms: 1.5
+  pullout_margin: 0.5     # motor torque <= margin * pull-out torque
+  microsteps: 16
+  steps_per_rev: 200
+
+motion:                   # Section 4
+  a_max: 40.0             # m/s^2 core (50 stretch)
+  lift: 0.025             # gate path lift
+  dwell: 0.040            # s per pick and per place
+  rate_hz: 1000           # MCU trajectory and IK rate
+  following_error_stop_deg: 0.6
+
+cell:                     # Section 2, robot frame
+  pick_z: -0.240          # platform ball plane at pick and place
+  belt_z: -0.287          # belt surface
+  belt_centre_y: -0.0385
+  belt_width: 0.150
+  belt_speed: 0.0267      # m/s at 60 caps/min
+  belt_x_range: [-0.400, 0.200]   # roller centres
+  lanes_y: [-0.0865, -0.0385, 0.0095]
+  pick_window_x: [-0.080, 0.080]
+  bins_x: [-0.075, -0.025, 0.025, 0.075]
+  bins_y: 0.0865
+  bin_size: 0.046
+  camera_pos: [-0.1925, -0.0385, -0.144]
+  beam_x: -0.280
+  conveyor_mm_per_step: 0.00982   # calibrate (16)
+  trigger_every_mm: 40.0
+
+sim:
+  timestep: 0.0002        # 5 kHz, needed for stiff loop constraints
+  constraint_solref: [0.0005, 1.0]
