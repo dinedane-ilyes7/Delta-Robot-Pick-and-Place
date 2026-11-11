@@ -17,3 +17,7 @@ The source file `analysis/kinematics.py` imports an absent `analysis/params.py`.
 - Choose a license only after obtaining agreement from all relevant rights holders.
 - Confirm the MuJoCo model and CadQuery generator run in your intended dependency versions; only Python syntax and a basic kinematics check were evaluated here.
 - If you later recover the full application, add it as a **separate source tree** with correct attributions and reproducibility instructions.
+
+## Published repository versus prepared package
+
+The **prepared local ZIP** contains 61 MuJoCo STL meshes, full-resolution PNG renders, and the original drawing PDF. The **GitHub repository** currently publishes the CAD sources, MuJoCo XML, saved reports, 15 lightweight WebP previews, and a reduced-resolution PDF drawing preview; it does **not** yet include those 61 binary STL mesh files. See [UPLOAD_STATUS.md](UPLOAD_STATUS.md) for the complete publication inventory.
