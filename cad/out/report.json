@@ -1,0 +1,176 @@
+{
+ "pose_mm": [
+  0.0,
+  0.0,
+  -240.0
+ ],
+ "belt": {
+  "teeth": 150,
+  "pitch_length_mm": 300.0,
+  "centre_distance_mm": 72.937
+ },
+ "parts": {
+  "M01_base_plate": {
+   "material": "alu",
+   "made": "6061 plate 6 mm, CNC or waterjet + drill",
+   "volume_cm3": 678.22,
+   "mass_solid_g": 1831.2,
+   "mass_printed_g": null,
+   "bbox_mm": [
+    340.0,
+    340.0,
+    6.0
+   ]
+  },
+  "M02_pivot_bracket": {
+   "material": "petg_cf",
+   "made": "print, flange down, 5 walls, 40 % gyroid",
+   "volume_cm3": 180.62,
+   "mass_solid_g": 234.8,
+   "mass_printed_g": 187.8,
+   "bbox_mm": [
+    68.0,
+    104.0,
+    124.0
+   ]
+  },
+  "M04_arm_hub": {
+   "material": "petg_cf",
+   "made": "print, axis vertical, 100 % around the bore",
+   "volume_cm3": 13.2,
+   "mass_solid_g": 17.2,
+   "mass_printed_g": 13.7,
+   "bbox_mm": [
+    62.0,
+    19.0,
+    24.0
+   ]
+  },
+  "M05_elbow_block": {
+   "material": "petg_cf",
+   "made": "print, socket axis vertical",
+   "volume_cm3": 6.95,
+   "mass_solid_g": 9.0,
+   "mass_printed_g": 7.2,
+   "bbox_mm": [
+    53.0,
+    22.0,
+    16.0
+   ]
+  },
+  "M06_upper_tube": {
+   "material": "carbon",
+   "made": "pultruded tube 12 x 10, cut to 135",
+   "volume_cm3": 4.66,
+   "mass_solid_g": 7.2,
+   "mass_printed_g": null,
+   "bbox_mm": [
+    135.0,
+    12.0,
+    12.0
+   ]
+  },
+  "M07_rod_end": {
+   "material": "petg_cf",
+   "made": "print x12 (6 plain + 6 mirrored), seat up",
+   "volume_cm3": 1.53,
+   "mass_solid_g": 2.0,
+   "mass_printed_g": 1.6,
+   "bbox_mm": [
+    20.1,
+    13.3,
+    31.6
+   ]
+  },
+  "M08_rod_tube": {
+   "material": "carbon",
+   "made": "pultruded tube 6 x 4, cut to 242",
+   "volume_cm3": 3.8,
+   "mass_solid_g": 5.9,
+   "mass_printed_g": null,
+   "bbox_mm": [
+    6.0,
+    6.0,
+    242.0
+   ]
+  },
+  "M09_platform": {
+   "material": "petg_cf",
+   "made": "print, flat",
+   "volume_cm3": 14.33,
+   "mass_solid_g": 18.6,
+   "mass_printed_g": 14.9,
+   "bbox_mm": [
+    63.8,
+    71.2,
+    12.5
+   ]
+  },
+  "M10_magnet_holder": {
+   "material": "pla",
+   "made": "print",
+   "volume_cm3": 0.97,
+   "mass_solid_g": 1.2,
+   "mass_printed_g": 1.0,
+   "bbox_mm": [
+    13.0,
+    9.5,
+    13.0
+   ]
+  },
+  "M11_pulley_120T": {
+   "material": "petg_cf",
+   "made": "print flat, 0.12 mm layers, check the profile",
+   "volume_cm3": 23.74,
+   "mass_solid_g": 30.9,
+   "mass_printed_g": 24.7,
+   "bbox_mm": [
+    80.9,
+    19.5,
+    80.9
+   ]
+  }
+ },
+ "theta_deg": [
+  35.541,
+  35.541,
+  35.541
+ ],
+ "mujoco": {
+  "xml": "cad/out/mujoco/delta_cell.xml",
+  "rotor_side_inertia_kgm2": 8.56842619189734e-06,
+  "bodies": {
+   "arm1": {
+    "mass_g": 115.69
+   },
+   "rod1a": {
+    "mass_g": 10.38
+   },
+   "rod1b": {
+    "mass_g": 10.38
+   },
+   "arm2": {
+    "mass_g": 115.69
+   },
+   "rod2a": {
+    "mass_g": 10.38
+   },
+   "rod2b": {
+    "mass_g": 10.38
+   },
+   "arm3": {
+    "mass_g": 115.69
+   },
+   "rod3a": {
+    "mass_g": 10.38
+   },
+   "rod3b": {
+    "mass_g": 10.38
+   },
+   "platform": {
+    "mass_g": 50.14
+   }
+  },
+  "moving_mass_g": 459.5
+ }
+}

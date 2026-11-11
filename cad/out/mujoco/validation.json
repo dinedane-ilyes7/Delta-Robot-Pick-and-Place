@@ -1,0 +1,100 @@
+{
+ "1_closure_residual_at_reference_mm": 0.0,
+ "reference_platform_mm": [
+  0.0,
+  0.0,
+  -240.0
+ ],
+ "reference_theta_deg": [
+  35.541,
+  35.541,
+  35.541
+ ],
+ "2_hold_drift_mm": 0.11173263138030531,
+ "2_hold_max_closure_residual_mm": 0.022846556898079712,
+ "3_moves": [
+  {
+   "target_mm": [
+    50.0,
+    30.0,
+    -260.0
+   ],
+   "reached_mm": [
+    50.004,
+    29.997,
+    -260.097
+   ],
+   "error_vs_target_mm": 0.097,
+   "error_vs_fk_of_measured_angles_mm": 0.0092,
+   "platform_tilt_deg": 0.0239
+  },
+  {
+   "target_mm": [
+    -80.0,
+    -86.5,
+    -240.0
+   ],
+   "reached_mm": [
+    -80.001,
+    -86.519,
+    -240.07
+   ],
+   "error_vs_target_mm": 0.073,
+   "error_vs_fk_of_measured_angles_mm": 0.0309,
+   "platform_tilt_deg": 0.0699
+  },
+  {
+   "target_mm": [
+    75.0,
+    86.5,
+    -215.0
+   ],
+   "reached_mm": [
+    75.008,
+    86.493,
+    -215.088
+   ],
+   "error_vs_target_mm": 0.088,
+   "error_vs_fk_of_measured_angles_mm": 0.0155,
+   "platform_tilt_deg": 0.0489
+  },
+  {
+   "target_mm": [
+    0.0,
+    0.0,
+    -300.0
+   ],
+   "reached_mm": [
+    -0.0,
+    -0.0,
+    -300.084
+   ],
+   "error_vs_target_mm": 0.084,
+   "error_vs_fk_of_measured_angles_mm": 0.0006,
+   "platform_tilt_deg": 0.0001
+  }
+ ],
+ "3_max_closure_residual_mm": 0.02298457248453567,
+ "model": {
+  "nbody": 11,
+  "njnt": 10,
+  "nq": 34,
+  "nv": 27,
+  "neq": 6,
+  "ntendon": 6,
+  "nu": 3,
+  "masses_g": {
+   "arm1": 115.69,
+   "rod1a": 10.38,
+   "rod1b": 10.38,
+   "arm2": 115.69,
+   "rod2a": 10.38,
+   "rod2b": 10.38,
+   "arm3": 115.69,
+   "rod3a": 10.38,
+   "rod3b": 10.38,
+   "platform": 50.14
+  },
+  "armature_hinge": 0.0003085
+ }
+}
